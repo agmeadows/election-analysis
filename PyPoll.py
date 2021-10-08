@@ -1,6 +1,8 @@
 import csv
 import os
 
+dir_path = os.path.dirname(os.path.realpath(__file__))
+os.chdir(dir_path)
 file_to_load = os.path.join('Resources', 'election_results.csv')
 file_to_save = os.path.join('Analysis', 'election_analysis.txt')
 
@@ -8,6 +10,7 @@ file_to_save = os.path.join('Analysis', 'election_analysis.txt')
 total_votes = 0
 candidate_options = []
 candidate_name = ""
+candidate_results = ""
 candidate_votes = {}
 votes = 0
 
@@ -39,38 +42,45 @@ with open(file_to_load) as election_data:
     
     # put candidates in single dictionary with percentage won rounded to 2 decimals
     for key in candidate_votes:
-        #print(key)
         candidate_dict[key] = {"votes" : candidate_votes[key], "percentage_won" : round(candidate_votes[key]/total_votes * 100, 1)}
     
     # calculate winner from dictionary
     for key in candidate_dict.keys():
         for value in candidate_dict.values():
             if (candidate_dict[key]['percentage_won'] > value['percentage_won']):
-                #print(key, value['percentage_won'], candidate_dict[key]['percentage_won'])
                 winner = key
 
     # print statistics
     for key in candidate_dict.keys():
-        print(f"{key}: {candidate_dict[key]['percentage_won']}% ({candidate_dict[key]['votes']:,})\n")
+        candidate_results = candidate_results + f"\n{key}: {candidate_dict[key]['percentage_won']}% ({candidate_dict[key]['votes']:,})\n"
+
+    print(candidate_results)
 
     winning_candidate_summary = (
-    f"-------------------------\n"
+    f"\n-------------------------\n"
     f"Winner: {winner}\n"
     f"Winning Vote Count: {candidate_dict[winner]['votes']:,}\n"
     f"Winning Percentage: {candidate_dict[winner]['percentage_won']}%\n"
     f"-------------------------\n")
     
-    print(winning_candidate_summary)
+    #print(winning_candidate_summary)
 
 
 with open(file_to_save, 'w') as text_file:
 
-    # write three counties to the file.
-    text_file.write("Counties in the Election\n")
-    text_file.write("________________________\n")
-    text_file.write("Arapahoe\n")
-    text_file.write("Denver\n")
-    text_file.write("Jefferson")
+    election_results = (
+        f"\nElection Results\n"
+        f"-------------------------\n"
+        f"Total Votes: {total_votes:,}\n"
+        f"-------------------------\n")
+    
+    print(election_results, end="")
+    print(candidate_results)
+    print(winning_candidate_summary)
+    # Save the final vote count to the text file.
+    text_file.write(election_results)
+    text_file.write(candidate_results)
+    text_file.write(winning_candidate_summary)
 
 # close the file.
 election_data.close()
