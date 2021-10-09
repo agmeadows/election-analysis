@@ -18,7 +18,7 @@ Calculate the candidate winner for the local congress election from data provide
 - Software: Python 3.6.1, Visual Studio Code, 1.38.1
 
 ## Summary
-The analysis of the election show:
+### The analysis of the election show:
 #### - There were 369,711 votes cast
 #### - The counties were:
     - Jefferson
