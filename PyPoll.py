@@ -25,15 +25,13 @@ county_dict = {}
 with open(file_to_load) as election_data:
 
     # declare variables for use in loop
-    
-
-    # Read the file object with the reader function.
+    # read the file object with the reader function.
     file_reader = csv.reader(election_data)
 
-    # Read and print the header row.
+    # read and print the header row.
     headers = next(file_reader)
 
-    # Print each row in the CSV file.
+    # print each row in the CSV file.
     for row in file_reader:
         # add votes
         total_votes += 1
@@ -80,8 +78,6 @@ with open(file_to_load) as election_data:
     for key in county_dict.keys():
         county_results = county_results + f"{key}: {county_dict[key]['percentage_won']}% ({county_dict[key]['votes']:,})\n"
 
-    #print(candidate_results)
-
     county_summary = (
         f"\n-------------------------\n"
         f"Largest county turnout: {county_highest}\n"
@@ -110,20 +106,13 @@ with open(file_to_save, 'w') as text_file:
     print(candidate_results)
     print(winning_candidate_summary)
     
-    # Save the final vote count to the text file.
+    # save the final vote count to the text file.
     text_file.write(election_results)
     text_file.write(county_results)
     text_file.write(county_summary)
     text_file.write(candidate_results)
     text_file.write(winning_candidate_summary)
 
-# close the file.
+# close the files.
 election_data.close()
 text_file.close()
-
-# import data file
-# get list of candidates
-# create a vote count
-# tally votes for each candidate
-# get total votes for election
-# determine election winner
