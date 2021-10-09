@@ -17,7 +17,7 @@ Calculate the candidate winner for the local congress election from data provide
 - Data Source: election_results.csv
 - Software: Python 3.6.1, Visual Studio Code, 1.38.1
 
-## Summary
+## Election Audit Results
 ### The analysis of the election show:
 #### - There were 369,711 votes cast
 #### - The counties were:
@@ -39,6 +39,9 @@ Calculate the candidate winner for the local congress election from data provide
     - Raymon Anthony Doane received 3.1% of the votes and 11,606 total votes
 #### - The winner of the election was Diana DeGette who received 73.8% of the vote and 272,892 total votes
 
-## Challenge Overview
+## Election Audit Summary
+By using the provided data set to perform an election analysis, we are able to determine the winner of the local congress election. Additionally, we can determine the county with the largest voter turn out. While the data set was limited, the analysis could be modified to work for any election. These are as follows:
 
-## Challenge Summary
+### - Proposed modifications
+    - Automate column discovery
+    --  Currently, column headers are not used to discover the data beneath them. These are hard coded. If the column order were to change the script would not work. Instead, the program can look at the data file headers to determine the data beneath is. For instance, ballot_id or candidate_name
