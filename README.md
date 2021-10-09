@@ -1,7 +1,7 @@
 # Election-Analysis
 
 ## Project Overview
-Calculate the candidate winner for the local congress election from data provided from the Colorodo Board of Elections
+Calculate the candidate winner for the local congress election from data provided from the Colorado Board of Elections
 
 1. Calculate the total votes cast.
 2. Get a complete list of counties participating in polling.
@@ -52,5 +52,5 @@ By using the provided data set to perform an election analysis, we are able to d
     - Sanitize data before analysis
         * With this particular data set we know it is clean. That may not always be the case in 
         other elections. An improvement to the analysis process would be to first verify there 
-        are no duplicate ballot IDs. If there are they should be purged and only valid IDs processed. 
+        are no duplicate ballot IDs. If there are any, they should be purged and only valid IDs processed. 
         This would make it more flexible for other elections.
