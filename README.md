@@ -44,6 +44,13 @@ By using the provided data set to perform an election analysis, we are able to d
 
 ### - Proposed modifications
     - Automate column discovery
-        * Currently, column headers are not used to discover the data beneath them. These are hard coded. If the column order were to change the script would not work. Instead, the program could look at the data file headers to determine the data beneath it. For instance, ballot_id or candidate_name. With the appropriate header information and data identified, the columns could be in any order.
+        * Currently, column headers are not used to discover the data beneath them.
+        These are hard coded. If the column order were to change the script would not work. 
+        Instead, the program could look at the data file headers to determine the data beneath it. 
+        For instance, ballot_id or candidate_name. With the appropriate header information and 
+        data identified, the columns could be in any order.
     - Sanitize data before analysis
-        * With this particular data set we know it is clean. That may not always be the case in other elections. An improvement to the analysis process would be to first verify there are no duplicate ballot IDs. If there are they should be purged and only valid IDs processed. This would make it more flexible for other elections.
+        * With this particular data set we know it is clean. That may not always be the case in 
+        other elections. An improvement to the analysis process would be to first verify there 
+        are no duplicate ballot IDs. If there are they should be purged and only valid IDs processed. 
+        This would make it more flexible for other elections.
