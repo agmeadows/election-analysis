@@ -100,9 +100,9 @@ with open(file_to_save, 'w') as text_file:
         f"-------------------------\n"
         f"\nCounty Votes:\n")
     
+    print(election_results, end="")
     print(county_results)
     print(county_summary)
-    print(election_results, end="")
     print(candidate_results)
     print(winning_candidate_summary)
     
